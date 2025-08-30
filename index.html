@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Hexagon 100% Stacked Area → Hexmap</title>
+  <style>
+    :root {
+      --bg: #0f1724;
+      --panel: #0b1220;
+      --accent: #7dd3fc
+    }
+
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial
+    }
+
+    body {
+      background: linear-gradient(180deg, #081025 0%, #0b1320 100%);
+      color: #dbeafe;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding: 14px
+    }
+
+    .wrap {
+      display: flex;
+      gap: 12px
+    }
+
+    .controls {
+      width: 300px;
+      background: rgba(255, 255, 255, 0.03);
+      padding: 12px;
+      border-radius: 10px
+    }
+
+    .controls label {
+      display: block;
+      margin-top: 8px;
+      font-size: 13px;
+      color: #cbd5e1
+    }
+
+    .controls input[type=range] {
+      width: 100%
+    }
+
+    canvas {
+      background: linear-gradient(180deg, #0b1220, #071022);
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(2, 6, 23, 0.7)
+    }
+
+    .footer {
+      font-size: 13px;
+      color: #94a3b8;
+      margin-top: 6px
+    }
+
+    button {
+      background: var(--accent);
+      border: none;
+      padding: 8px 10px;
+      border-radius: 8px;
+      color: #021025;
+      cursor: pointer
+    }
+
+    .small {
+      font-size: 12px;
+      color: #9fb0c8
+    }
+  </style>
+  <script type="module" crossorigin src="/hex/assets/index-BAiClGdd.js"></script>
+</head>
+
+<body>
+  <h3>100% Stacked Area Hexmap</h3>
+  <div class="wrap">
+    <div class="controls">
+      <label class="small">Hex size: <span id="hexSizeLabel">8</span> px</label>
+      <input id="hexSize" type="range" min="2" max="48" value="8">
+
+      <label class="small">Number of series</label>
+      <input id="seriesCount" type="range" min="2" max="15" value="4">
+
+      <label class="small">Smoothing percentage: <span id="smoothPercentLabel">0</span>%</label>
+      <input id="smoothPercent" type="range" min="0" max="100" value="0">
+
+      <label class="small" style="margin-top:10px">Data JSON/TSV</label>
+      <textarea id="mockData" placeholder='[{"label":"A","values":[...]}]' rows="8"
+        style="width:100%;box-sizing:border-box;border-radius:6px;padding:8px;background:rgba(255,255,255,0.02);color:inherit;border:1px solid rgba(255,255,255,0.04)"></textarea>
+
+      <div style="margin-top:10px;display:flex;gap:8px;align-items:center">
+        <button id="regen">Random Data</button>
+        <button id="download">Download PNG</button>
+        <button id="toggleView">Show Hex</button>
+      </div>
+
+      <div id="globalOrderContainer" style="margin-top:12px">
+        <label class="small">Global series order (drag to reorder)</label>
+        <div style="display:flex;align-items:center;gap:8px;margin-top:6px">
+          <button id="resetOrder" style="padding:6px 8px">Reset</button>
+          <span class="small" style="opacity:0.8">Drag items to change vertical stacking order (bottom → top)</span>
+        </div>
+        <div id="globalOrder"
+          style="margin-top:8px;display:flex;flex-direction:column;gap:6px;max-height:240px;overflow:auto;padding:6px;background:rgba(255,255,255,0.02);border-radius:6px;border:1px solid rgba(255,255,255,0.03)">
+        </div>
+      </div>
+    </div>
+    <div>
+      <canvas id="main" width="900" height="700"></canvas>
+    </div>
+  </div>
+
+</body>
+
+</html>
