@@ -1,3 +1,5 @@
+Live demo: https://xdnw.github.io/hex/
+
 # hex — Hex-binned Stacked Area Visualizer
 
 Small interactive web app that renders a stacked-area chart and a hex-binned variant of the same data. Data can be provided as JSON (internal format) or TSV. The UI supports smoothing, per-series ordering, drag-reorder of global stacking order, toggling between stacked-line and hex views, and exporting the canvas as PNG.
@@ -8,6 +10,7 @@ Small interactive web app that renders a stacked-area chart and a hex-binned var
 - Smooth (moving average) option
 - User-controlled global series stacking order (drag & drop)
 - Live editing of data as JSON or TSV
+- Mock data generation
 - Download canvas as PNG
 - Lightweight, zero-dependency TypeScript source (src/main.ts)
 
@@ -30,6 +33,8 @@ TSV
   index\tA\tB
   0\t0.1\t0.9
   1\t0.2\t0.8
+
+See: `sample.csv`
 
 The app will try JSON parse first; if that fails it will fallback to TSV parsing.
 
