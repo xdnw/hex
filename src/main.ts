@@ -80,21 +80,21 @@ function createOffscreen(w: number, h: number): HTMLCanvasElement {
 
 function randomName(i: number) {
     const names = [
-        "Eclipse",
         "Rose",
-        "The Knights Radiant",
-        "Event Horizon",
-        "The Syndicate",
-        "Citadel",
-        "The Immortals",
-        "Singularity",
-        "The Fighting Pacifists",
-        "Spectre",
-        "Grumpy Old Bastards",
-        "Guardian",
-        "The Sword Coast",
-        "Global Alliance & Treaty Organization",
-        "Weebunism"
+        "Tulip",
+        "Daffodil",
+        "Lily",
+        "Orchid",
+        "Sunflower",
+        "Daisy",
+        "Marigold",
+        "Peony",
+        "Iris",
+        "Lavender",
+        "Carnation",
+        "Chrysanthemum",
+        "Gardenia",
+        "Hydrangea"
     ];
     return names[i % names.length];
 }
